@@ -12,7 +12,7 @@ const MemeSummary = ({ meme }) => {
     return (
         <div className="card z-depth-0 project-summary center-align" key={meme.id} >
             <div className="card-content grey-text text-darken-3" >
-                <span className="card-title">{meme.title}</span>
+                <span className="card-title text-fedorak">{meme.title}</span>
                 <Link to={'/meme/' + meme.id} key={meme.id}>
                     <img src={meme.meme_path} alt='not available' className="responsive-img" />
                 </Link>
