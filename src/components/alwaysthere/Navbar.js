@@ -15,7 +15,6 @@ const Navbar = () => {
                     <li>Log Out</li>
                     <li>Sign Up</li>
                     <li><Link to='/' className='btn btn-floating yellow lighten-1 text-black'>YB</Link></li>
-
                 </ul>
 
 
