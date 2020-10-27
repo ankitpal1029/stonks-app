@@ -8,13 +8,14 @@ const Navbar = () => {
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
                 <ul className="left">
-                    <Link to='/'>KeK</Link>
+                    <Link to='/'><i className="yellow-text">KeK</i></Link>
                 </ul>
                 <ul className="right">
                     <li>Post Meme</li>
                     <li>Log Out</li>
                     <li>Sign Up</li>
-                    <li><Link to='/' className='btn btn-floating yellow lighten-1 text-black'>YB</Link></li>
+                    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i className="material-icons cyan-text text-lighten-3">menu</i></a>
+                    {/* <li><Link to='/' className='btn btn-floating yellow lighten-1 text-black'>YB</Link></li> */}
                 </ul>
 
 
