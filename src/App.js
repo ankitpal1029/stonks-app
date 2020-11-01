@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Dashboard from './components/dashboard/Dashboard'
 import Navbar from './components/alwaysthere/Navbar'
 import MemeDetails from './components/memes/MemeDetails';
+import SignUp from './components/auth/SignUp'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route path='/meme/:id' component={MemeDetails} />
           <Route exact path='/' component={Dashboard} />
+          <Route exact path='/signup' component={SignUp} />
         </Switch>
 
       </div>

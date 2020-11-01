@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import MemeList from '../memes/MemeList'
 import './Dashboard.css'
-import Chats from '../../ChatBox/Chats';
+import Chats from '../ChatBox/Chats';
 
 
 class Dashboard extends Component {
