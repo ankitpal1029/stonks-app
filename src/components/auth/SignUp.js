@@ -7,6 +7,35 @@ class SignUp extends Component {
         password: ''
     }
 
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        // const firstName = e.target.firstName.value;
+        // const lastName = e.target.lastName.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+
+        // console.log(firstName, lastName, email, password);
+
+        try {
+            const res = await fetch('http://localhost:5000/signup', {
+                method: 'POST',
+                body: JSON.stringify({ email, password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+
+
+    }
+
+
+
     render() {
         return (
             // <div className="container">
@@ -26,22 +55,24 @@ class SignUp extends Component {
             //     </form>
             // </div>
             <div className="container">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h2>Sign Up</h2>
 
-                    <label for="first-name" required >First Name</label>
-                    <input type="text" name="first-name" required />
+                    {/* <label htmlFor="firstName" required >First Name</label>
+                    <input type="text" name="firstName" required />
 
-                    <label for="last-name" required >Last Name</label>
-                    <input type="text" name="last-name" required />
+                    <label htmlFor="lastName" required >Last Name</label>
+                    <input type="text" name="lastName" required /> */}
 
 
-                    <label for="email" >Email</label>
+                    <label htmlFor="email" >Email</label>
                     <input type="text" name="email" required />
                     <div className="email error" ></div>
-                    <label for="password" required >Password</label>
+                    <label htmlFor="password" required >Password</label>
                     <input type="password" name="password" required />
                     <div className="password error"></div>
+
+                    <button>Submit</button>
                 </form>
             </div>
 
