@@ -8,6 +8,7 @@ import SignUp from './components/auth/SignUp'
 
 
 function App() {
+    //to try out
   return (
     <BrowserRouter>
       <div className="App">
