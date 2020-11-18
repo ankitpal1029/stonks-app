@@ -23,11 +23,13 @@ class SignUp extends Component {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: {
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
-                }
-            });
-
-        } catch (err) {
+                },
+                credentials: 'include'
+            })
+        }
+                catch (err) {
             console.log(err);
         }
 
