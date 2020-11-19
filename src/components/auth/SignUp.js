@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './SignUp.css'
+import './SignUp.css';
 
 class SignUp extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
+        data:''
     }
 
 
@@ -15,9 +16,8 @@ class SignUp extends Component {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-
         // console.log(firstName, lastName, email, password);
-
+        console.log(this.props);
         try {
             const res = await fetch('http://localhost:5000/signup', {
                 method: 'POST',
@@ -28,6 +28,16 @@ class SignUp extends Component {
                 },
                 credentials: 'include'
             })
+            const for_error = await res.json();
+            if(for_error.errors_json){
+                this.setState({
+                    data:for_error,
+                });
+                console.log(for_error);
+            }else{
+                this.props.history.push("/");
+                console.log(for_error);
+            }
         }
                 catch (err) {
             console.log(err);
@@ -69,12 +79,26 @@ class SignUp extends Component {
 
                     <label htmlFor="email" >Email</label>
                     <input type="text" name="email" required />
-                    <div className="email error" ></div>
+                    <div className="email error" >
+
+                    {
+                        this.state.data && this.state.data.errors_json && 
+                            <p>{this.state.data.errors_json.email}</p>
+                    } 
+
+                    </div>
                     <label htmlFor="password" required >Password</label>
                     <input type="password" name="password" required />
-                    <div className="password error"></div>
-
-                    <button>Submit</button>
+                    <div className="password error">
+                        
+                    {
+                        this.state.data && this.state.data.errors_json && 
+                            <p>{this.state.data.errors_json.password}</p>
+                    } 
+                    </div>
+                    {/* <Link to="/">*/}
+                        <button>Submit</button>
+                    {/*</Link>*/}
                 </form>
             </div>
 
