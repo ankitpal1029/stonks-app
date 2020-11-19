@@ -15,7 +15,7 @@ const Navbar = () => {
                 </ul>
                 <ul className="right">
                     <li>Post Meme</li>
-                    <li>Log Out</li>
+                    <li><Link to='signin'>Sign In</Link></li>
                     <li><Link to='/signup'>Sign Up</Link></li>
                     <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons cyan-text text-lighten-3">menu</i></a>
                     {/* <li><Link to='/' className='btn btn-floating yellow lighten-1 text-black'>YB</Link></li> */}
