@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import './Chats.css';
 
 
 class Chats extends Component {
     componentDidMount() {
         let sidenav = document.querySelector('#slide-out');
         M.Sidenav.init(sidenav, {});
+
+        let elems = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elems, {inDuration: 300, outDuration: 225})
     }
 
     handleClick = (e) => {
@@ -13,25 +17,26 @@ class Chats extends Component {
 
 
     }
+
     render() {
 
 
         return (
             <div>
                 <ul id="slide-out" className="sidenav" >
-                    <li><div className="user-view">
-                        <div className="background">
-                            <img src="" />
-                        </div>
-                        <a href="#user"><img className="circle" /></a>
-                        <a href="#user"><span className="white-text name">Ankit</span></a>
-                        <a href="#user"><span className="white-text email">ankitkumarpal27@gmail.com</span></a>
-                    </div></li>
-                    <li><a href="#!"><i className="material-icons">cloud</i>First Link with Icon</a></li>
-                    <li><a href="#!">Second Link</a></li>
-                    <li><div className="divider"></div></li>
-                    <li><a className="subheader">Subheader</a></li>
-                    <li><a className="waves-effect" href="#!">Third Link With Waves</a></li>
+                <div className="join-container">
+                    {/* <main className="join-main"> */}
+                        <form className="chatoptions-box">
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Choose Room!</a>
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="#!">CompareMemes</a></li>
+                                    <li><a href="#!">Chat</a></li>
+                                </ul>
+                            {/* </div> */}
+                            <button type="submit" className="btn">Join Chat</button>
+                        </form>
+                    {/* </main> */}
+		        </div>
                 </ul>
             </div>
         )
